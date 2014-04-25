@@ -1,0 +1,10 @@
+{
+  "name" : "shoelace-ui-border-radius",
+  "version" : "0.0.1",
+  "description" : "Border-radius variables",
+  "repository" : "https://github.com/shoelace-ui/border-radius.git",
+  "keywords" : ["stylus","border-radius", "border", "radius"],
+  "author" : "Michael Andrew Vanasse <mail@mndvns.com>",
+  "license" : "MIT"
+  "dependencies": {}
+}

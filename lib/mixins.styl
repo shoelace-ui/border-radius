@@ -1,0 +1,45 @@
+/**
+ * Module dependencies
+ */
+
+@require './variables'
+
+/**
+ * Define variables for `border-radius` transparent mixin,
+ * including vendor prefix preferences.
+ */
+
+border-radius--mixin-allow  ?= true
+border-radius--webkit       ?= true
+border-radius--moz          ?= true
+
+/**
+ * Apply transparent mixin to
+ *   - `border-radius`
+ *   - `border-radius-top`
+ *   - `border-radius-right`
+ *   - `border-radius-bottom`
+ *   - `border-radius-left`
+ */
+
+if border-radius--mixin-allow is true
+  border-radius(arguments)
+    border-radius--mixin(arguments)
+
+/**
+ * Replace arguments in `border-radius`
+ * with `border-radius--` variables, if matching.
+ * Also provide vendor prefixes.
+ *
+ * @type mixin
+ */
+
+border-radius--mixin(pos)
+  prop = current-property[0]
+  args = current-property[1]
+  for idx in 0..(length(args))
+    args[idx] = (lookup(join('--', prop args[idx]))) or args[idx]
+
+  -webkit-{prop} args if border-radius--webkit
+  -moz-{prop} args if border-radius--moz
+  {prop} args
