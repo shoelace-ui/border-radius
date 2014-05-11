@@ -1,6 +1,6 @@
 # border-radius
 
-Border-Radius variations.
+Border-radius variations.
 
 ## Installation
 
