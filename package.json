@@ -5,6 +5,6 @@
   "repository" : "https://github.com/shoelace-ui/border-radius.git",
   "keywords" : ["stylus","border-radius", "border", "radius"],
   "author" : "Michael Andrew Vanasse <mail@mndvns.com>",
-  "license" : "MIT"
+  "license" : "MIT",
   "dependencies": {}
 }

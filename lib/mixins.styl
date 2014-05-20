@@ -23,7 +23,7 @@ border-radius--moz          ?= true
  */
 
 if border-radius--mixin-allow is true
-  border-radius(arguments)
+  border-radius()
     border-radius--mixin(arguments)
 
 /**
@@ -31,15 +31,8 @@ if border-radius--mixin-allow is true
  * with `border-radius--` variables, if matching.
  * Also provide vendor prefixes.
  *
- * @type mixin
+ * @mixin
  */
 
-border-radius--mixin(pos)
-  prop = current-property[0]
-  args = current-property[1]
-  for idx in 0..(length(args))
-    args[idx] = (lookup(join('--', prop args[idx]))) or args[idx]
-
-  -webkit-{prop} args if border-radius--webkit
-  -moz-{prop} args if border-radius--moz
-  {prop} args
+border-radius--mixin()
+  add-property('border-radius', arguments[0])
