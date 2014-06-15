@@ -20,11 +20,32 @@ border-radius--moz          ?= true
  *   - `border-radius-right`
  *   - `border-radius-bottom`
  *   - `border-radius-left`
+ *
+ * Example:
+ *
+ *   ```stylus
+ *   button
+ *     border-radius-top base
+ *   ```
+ *
+ *   ```css
+ *   button {
+ *     border-radius-top: 2px;
+ *   }
+ *   ```
  */
 
 if border-radius--mixin-allow is true
-  border-radius()
-    border-radius--mixin(arguments)
+  border-radius(n)
+    border-radius--mixin(n)
+  border-radius-top(n)
+    border-radius--mixin(n)
+  border-radius-right(n)
+    border-radius--mixin(n)
+  border-radius-bottom(n)
+    border-radius--mixin(n)
+  border-radius-left(n)
+    border-radius--mixin(n)
 
 /**
  * Replace arguments in `border-radius`
@@ -34,5 +55,5 @@ if border-radius--mixin-allow is true
  * @mixin
  */
 
-border-radius--mixin()
-  add-property('border-radius', arguments[0])
+border-radius--mixin(arg)
+  add-property(current-property[0], (lookup('border-radius--' + arg) or arg))
